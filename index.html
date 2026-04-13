@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pizzaria Donatella | Sabor e Tradição</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER / MENU DE NAVEGAÇÃO -->
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="#home">Donatella</a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#delivery">Delivery</a></li>
+                <li><a href="#reserva">Reserva</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#historia">História</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#delivery">Delivery</a></li>
+            <li><a href="#reserva">Reserva</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home" data-aos="fade-in">
+    <div class="hero-content">
+        <h1>Pizzaria Donatella</h1>
+        <p>Forno a lenha, paixão em cada fatia desde 1995</p>
+        <div>
+            <a href="#cardapio" class="btn-primary">Ver Cardápio</a>
+            <a href="#reserva" class="btn-secondary">Reservar Mesa</a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <!-- História -->
+    <div class="container" id="historia" data-aos="fade-up">
+        <div class="historia-grid">
+            <div class="historia-text">
+                <h2 class="section-title" style="text-align:left; margin-bottom:20px;">Nossa História</h2>
+                <p style="font-size:1.1rem; line-height:1.5;">Tudo começou em 1995, quando o Nonno Giovanni trouxe da Itália o segredo das massas e do fermento natural. Em uma pequena pizzaria no bairro, começamos a encantar famílias com pizzas feitas com ingredientes selecionados e muito amor. Hoje, somos referência em tradição e sabor, mantendo o forno a lenha aceso e o sorriso no rosto de quem nos visita. Venha fazer parte dessa história!</p>
+                <p style="margin-top:20px;"><strong>     Mais de 25 anos de sabor e autenticidade.</strong></p>
+            </div>
+            <div class="historia-img">
+                <img src="https://images.pexels.com/photos/280453/pexels-photo-280453.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Equipe Donatella">
+            </div>
+        </div>
+    </div>
+
+    <!-- Cardápio -->
+    <div class="container" id="cardapio" data-aos="fade-up">
+        <h2 class="section-title">Nosso Cardápio</h2>
+        <div class="categoria">
+            <h3> Tradicionais</h3>
+            <div class="cardapio-grid" id="tradicionais"></div>
+        </div>
+        <div class="categoria">
+            <h3> Especiais</h3>
+            <div class="cardapio-grid" id="especiais"></div>
+        </div>
+        <div class="categoria">
+            <h3> Doces</h3>
+            <div class="cardapio-grid" id="doces"></div>
+        </div>
+    </div>
+
+    <!-- Delivery -->
+    <div class="container" id="delivery" data-aos="zoom-in">
+        <div class="delivery">
+            <i class="fas fa-motorcycle" style="font-size:3rem; color:#b2221c;"></i>
+            <h2 style="font-size:2rem;">Receba sua pizza quentinha em casa!</h2>
+            <p>Delivery rápido e eficiente. Apenas na Grande São Paulo.</p>
+            <div class="phone-highlight"><i class="fas fa-phone-alt"></i> (11) 98765-4321</div>
+            <a href="https://wa.me/5511987654321?text=Olá! Gostaria de fazer um pedido." class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Reserva e Contato -->
+    <div class="container" id="reserva" data-aos="fade-up">
+        <div class="form-grid">
+            <div class="form-box">
+                <h3><i class="fas fa-calendar-alt"></i> Reservar Mesa</h3>
+                <form id="formReserva">
+                    <select id="unidade" required>
+                        <option value="">Selecione a unidade</option>
+                        <option value="Centro">Centro - Praça Itália</option>
+                        <option value="Vila Mariana">Vila Mariana</option>
+                        <option value="Moema">Moema</option>
+                    </select>
+                    <input type="date" id="dataReserva" required>
+                    <input type="time" id="horaReserva" required>
+                    <input type="text" id="nomeReserva" placeholder="Nome completo" required>
+                    <input type="email" id="emailReserva" placeholder="Email" required>
+                    <input type="tel" id="telefoneReserva" placeholder="Telefone" required>
+                    <input type="number" id="pessoas" placeholder="Número de pessoas" min="1" max="20" required>
+                    <div id="reservaError" class="error-msg"></div>
+                    <button type="submit">Reservar Agora</button>
+                </form>
+            </div>
+
+            <div class="form-box" id="contato">
+                <h3><i class="fas fa-envelope"></i> Fale Conosco</h3>
+                <form id="formContato">
+                    <input type="text" id="nomeContato" placeholder="Nome completo" required>
+                    <input type="email" id="emailContato" placeholder="Email" required>
+                    <input type="tel" id="telefoneContato" placeholder="Telefone" required>
+                    <textarea rows="3" id="mensagemContato" placeholder="Sua mensagem..." required></textarea>
+                    <div id="contatoError" class="error-msg"></div>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4><i class="fas fa-map-marker-alt"></i> Endereço</h4>
+            <p>Rua das Margheritas, 888 - Centro, São Paulo - SP</p>
+            <p>📍 Unidade Vila Mariana: Av. Consolação, 1234</p>
+        </div>
+        <div class="footer-col">
+            <h4><i class="far fa-clock"></i> Horário</h4>
+            <p>Terça a Domingo: 18h às 23h30</p>
+            <p>Sexta e Sábado: até 00h30</p>
+        </div>
+        <div class="footer-col">
+            <h4><i class="fas fa-share-alt"></i> Redes Sociais</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/?locale=pt_BR"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/?lang=pt"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:40px; font-size:0.8rem;">© 2026 Pizzaria Donatella - Sabor e tradição | Protegido com HTTPS e segurança nos dados</div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
