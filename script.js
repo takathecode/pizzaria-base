@@ -228,7 +228,7 @@ function finalizarPedido() {
     const mensagem = gerarMensagemWhatsApp();
     if (!mensagem) return;
     
-    const numeroTelefone = "5511987654321";
+    const numeroTelefone = "5511972842478";
     const urlWhatsApp = `https://wa.me/${numeroTelefone}?text=${mensagem}`;
     
     window.open(urlWhatsApp, '_blank');
