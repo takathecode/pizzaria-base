@@ -26,7 +26,8 @@
                 <li><a href="#historia">História</a></li>
                 <li><a href="#cardapio">Cardápio</a></li>
                 <li><a href="#delivery">Delivery</a></li>
-                <li><a href="#reserva">Reserva</a></li>
+                <li><a href="#pedido">Pedido</a></li>
+                <li><a href="#localizacao">Localização</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -40,7 +41,8 @@
             <li><a href="#historia">História</a></li>
             <li><a href="#cardapio">Cardápio</a></li>
             <li><a href="#delivery">Delivery</a></li>
-            <li><a href="#reserva">Reserva</a></li>
+            <li><a href="#pedido">Pedido</a></li>
+            <li><a href="#localizacao">Localização</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
     </div>
@@ -53,7 +55,7 @@
         <p>Forno a lenha, paixão em cada fatia desde 1995</p>
         <div>
             <a href="#cardapio" class="btn-primary">Ver Cardápio</a>
-            <a href="#reserva" class="btn-secondary">Reservar Mesa</a>
+            <a href="#pedido" class="btn-secondary">Fazer Pedido</a>
         </div>
     </div>
 </section>
@@ -90,51 +92,85 @@
         </div>
     </div>
 
-    <!-- Delivery -->
+    <!-- Delivery / Carrinho -->
     <div class="container" id="delivery" data-aos="zoom-in">
         <div class="delivery">
             <i class="fas fa-motorcycle" style="font-size:3rem; color:#b2221c;"></i>
             <h2 style="font-size:2rem;">Receba sua pizza quentinha em casa!</h2>
             <p>Delivery rápido e eficiente. Apenas na Grande São Paulo.</p>
             <div class="phone-highlight"><i class="fas fa-phone-alt"></i> (11) 98765-4321</div>
-            <a href="https://wa.me/5511987654321?text=Olá! Gostaria de fazer um pedido." class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp</a>
+            
+            <!-- Botão do Carrinho -->
+            <button class="btn-cart-toggle" id="cartToggle">
+                <i class="fas fa-shopping-cart"></i> Ver Carrinho <span id="cartCount">0</span>
+            </button>
         </div>
     </div>
 
-    <!-- Reserva e Contato -->
-    <div class="container" id="reserva" data-aos="fade-up">
-        <div class="form-grid">
-            <div class="form-box">
-                <h3><i class="fas fa-calendar-alt"></i> Reservar Mesa</h3>
-                <form id="formReserva">
-                    <select id="unidade" required>
-                        <option value="">Selecione a unidade</option>
-                        <option value="Centro">Centro - Praça Itália</option>
-                        <option value="Vila Mariana">Vila Mariana</option>
-                        <option value="Moema">Moema</option>
-                    </select>
-                    <input type="date" id="dataReserva" required>
-                    <input type="time" id="horaReserva" required>
-                    <input type="text" id="nomeReserva" placeholder="Nome completo" required>
-                    <input type="email" id="emailReserva" placeholder="Email" required>
-                    <input type="tel" id="telefoneReserva" placeholder="Telefone" required>
-                    <input type="number" id="pessoas" placeholder="Número de pessoas" min="1" max="20" required>
-                    <div id="reservaError" class="error-msg"></div>
-                    <button type="submit">Reservar Agora</button>
-                </form>
+            <!-- Localização com Google Maps -->
+    <div class="container" id="localizacao" data-aos="fade-up">
+        <h2 class="section-title">Nossa Localização</h2>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197563912218!2d-46.65817638447518!3d-23.56121348468337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="350" 
+                style="border:0; border-radius: 24px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <p style="text-align:center; margin-top:16px; color: var(--brown);">
+            <i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - Bela Vista, São Paulo - SP
+        </p>
+    </div>
+    <!-- Seção de Pedido (antiga reserva) -->
+    <div class="container" id="pedido" data-aos="fade-up">
+        <div class="form-box" style="max-width:800px; margin:0 auto;">
+            <h3><i class="fas fa-shopping-cart"></i> Faça seu Pedido</h3>
+            <p style="text-align:center; margin-bottom:20px;">Adicione as pizzas ao carrinho e finalize pelo WhatsApp!</p>
+            
+            <!-- Botão rápido para ver carrinho -->
+            <div style="text-align:center;">
+                <button class="btn-secondary" id="cartToggle2" style="margin:0 auto;">
+                    <i class="fas fa-shopping-cart"></i> Ver Carrinho (<span id="cartCount2">0</span>)
+                </button>
             </div>
+        </div>
+    </div>
 
-            <div class="form-box" id="contato">
-                <h3><i class="fas fa-envelope"></i> Fale Conosco</h3>
-                <form id="formContato">
-                    <input type="text" id="nomeContato" placeholder="Nome completo" required>
-                    <input type="email" id="emailContato" placeholder="Email" required>
-                    <input type="tel" id="telefoneContato" placeholder="Telefone" required>
-                    <textarea rows="3" id="mensagemContato" placeholder="Sua mensagem..." required></textarea>
-                    <div id="contatoError" class="error-msg"></div>
-                    <button type="submit">Enviar Mensagem</button>
-                </form>
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Seu Pedido</h3>
+                <span class="cart-close" id="cartClose">&times;</span>
             </div>
+            <div class="cart-items" id="cartItems">
+                <p class="cart-empty">Seu carrinho está vazio</p>
+            </div>
+            <div class="cart-total">
+                <strong>Total: <span id="cartTotal">R$ 0,00</span></strong>
+            </div>
+            <button class="btn-finalizar" id="finalizarPedido">
+                <i class="fab fa-whatsapp"></i> Finalizar Pedido via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Contato -->
+    <div class="container" id="contato" data-aos="fade-up">
+        <div class="form-box" style="max-width:800px; margin:0 auto;">
+            <h3><i class="fas fa-envelope"></i> Fale Conosco</h3>
+            <form id="formContato">
+                <input type="text" id="nomeContato" placeholder="Nome completo" required>
+                <input type="email" id="emailContato" placeholder="Email" required>
+                <input type="tel" id="telefoneContato" placeholder="Telefone" required>
+                <textarea rows="3" id="mensagemContato" placeholder="Sua mensagem..." required></textarea>
+                <div id="contatoError" class="error-msg"></div>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
         </div>
     </div>
 </main>
@@ -149,7 +185,7 @@
         <div class="footer-col">
             <h4><i class="far fa-clock"></i> Horário</h4>
             <p>Terça a Domingo: 18h às 23h30</p>
-            <p>Sexta e Sábado: até 00h30</p>
+            <p>Sexta e Sábado: até 00h30    </p>
         </div>
         <div class="footer-col">
             <h4><i class="fas fa-share-alt"></i> Redes Sociais</h4>
